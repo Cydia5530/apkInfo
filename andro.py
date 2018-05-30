@@ -67,11 +67,12 @@ def getSign():
     certs = set(targeApk.get_certificates_der_v2() + [targeApk.get_certificate_der(x) for x in targeApk.get_signature_names()])
     for cert in certs:
         x509_cert = x509.Certificate.load(cert)
-        print(x509_cert.issuer.human_friendly)
+        #print(x509_cert.issuer.human_friendly)
         #print("Issuer:", get_certificate_name_string(x509_cert.issuer, short=True))
-        rawIssuer = x509_cert['tbs_certificate']['issuer'].native
-        Issuer="CN="+ rawIssuer['country_name'] +", OU="+rawIssuer["organizational_unit_name"]+", O="+rawIssuer["organization_name"]\
-                +", L="+rawIssuer["locality_name"]+", ST="+rawIssuer["state_or_province_name"]+", C="+rawIssuer["country_name"]
+        #rawIssuer = x509_cert['tbs_certificate']['issuer'].native
+        #Issuer="CN="+ rawIssuer['country_name'] +", OU="+rawIssuer["organizational_unit_name"]+", O="+rawIssuer["organization_name"]\
+        #        +", L="+rawIssuer["locality_name"]+", ST="+rawIssuer["state_or_province_name"]+", C="+rawIssuer["country_name"]
+        Issuer = get_certificate_name_string(x509_cert.issuer.native, short=True)
         SerialNumber = hex(x509_cert.serial_number).upper().strip("0X")
         signMd5 = hashlib.md5(cert).hexdigest().upper()
         signSha1 = hashlib.sha1(cert).hexdigest().upper()
