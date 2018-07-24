@@ -14,6 +14,7 @@ import xlrd
 #   7. env py3.6;
 #   8. 需安装的包: pyppeteer, xlwt；
 #   9. 具体情况，自行查看代码、注释、控制台打印信息。
+#  10. 后续添加反反爬虫机制吧，主要是搞随机时间差点击。
 
 
 
@@ -54,8 +55,8 @@ async def main():
     await LoginPage.bringToFront()
     ##### 输入账号、密码
     await LoginPage.waitForSelector("#password")
-    await LoginPage.type("#email", "hnq@cert.org.cn")
-    await LoginPage.type("#password", "tw2LQE8L4t1VCD5M")
+    await LoginPage.type("#email", "hn")
+    await LoginPage.type("#password", "twM")
     since = time.time()
 #### 等待用户输入正确的验证码，点击登录后，等待浏览器跳转，当前最大等待时间为60s。可根据网速、手速更改
     navi = LoginPage.waitForNavigation(timeout=60*1000)
