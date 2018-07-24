@@ -53,8 +53,8 @@ async def main():
     await LoginPage.bringToFront()
     ##### 输入账号、密码
     await LoginPage.waitForSelector("#password")
-    await LoginPage.type("#email", "hnq@cert.org.cn")
-    await LoginPage.type("#password", "tw2LQE8L4t1VCD5M")
+    await LoginPage.type("#email", "hnqn")
+    await LoginPage.type("#password", "twD5M")
     since = time.time()
 #####  空转，等待用户成功输入验证码
     #while True:
